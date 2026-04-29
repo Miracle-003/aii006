@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Miracle Chenda | Senior Frontend Developer</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f2f2f2;
+        --card: #ffffff;
+        --text: #1f2937;
+        --muted: #9ca3af;
+        --accent: #35c2c1;
+        --line: #e5e7eb;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      img {
+        display: block;
+        max-width: 100%;
+      }
+      .page {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 48px 20px;
+      }
+      .card {
+        width: min(1000px, 100%);
+        background: var(--card);
+        border-radius: 18px;
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.08);
+        padding: 40px 56px;
+      }
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 32px;
+      }
+      .logo {
+        font-weight: 700;
+        letter-spacing: 0.5px;
+      }
+      .logo span {
+        color: var(--accent);
+      }
+      .nav {
+        display: flex;
+        gap: 20px;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--muted);
+      }
+      .nav a:hover {
+        color: var(--text);
+      }
+      .hero {
+        display: grid;
+        grid-template-columns: 120px 1fr;
+        gap: 24px;
+        align-items: center;
+        margin-bottom: 32px;
+      }
+      .hero img {
+        width: 120px;
+        height: 120px;
+        border-radius: 12px;
+        object-fit: cover;
+        border: 2px solid var(--line);
+      }
+      .hero small {
+        color: var(--muted);
+        display: block;
+        margin-bottom: 6px;
+      }
+      .hero h1 {
+        font-size: 2.1rem;
+        margin-bottom: 6px;
+      }
+      .hero h2 {
+        font-size: 1.05rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--accent);
+        margin-bottom: 8px;
+      }
+      .section {
+        padding: 24px 0;
+        border-top: 1px solid var(--line);
+      }
+      .section:first-of-type {
+        border-top: none;
+        padding-top: 0;
+      }
+      .section h3 {
+        font-size: 1.4rem;
+        margin-bottom: 12px;
+      }
+      .muted {
+        color: var(--muted);
+      }
+      .experience-layout {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 32px;
+        align-items: start;
+      }
+      .experience-title {
+        font-size: 1.6rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .experience-title span {
+        color: var(--accent);
+      }
+      .timeline {
+        position: relative;
+        padding-left: 24px;
+      }
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 6px;
+        top: 6px;
+        bottom: 6px;
+        width: 1px;
+        background: var(--line);
+      }
+      .timeline-item {
+        position: relative;
+        padding-left: 24px;
+        margin-bottom: 24px;
+      }
+      .timeline-item:last-child {
+        margin-bottom: 0;
+      }
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: -4px;
+        top: 6px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--accent);
+      }
+      .timeline-item .year {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--muted);
+        margin-bottom: 4px;
+      }
+      .timeline-item h4 {
+        font-size: 1rem;
+        margin-bottom: 4px;
+      }
+      .timeline-item p {
+        font-size: 0.92rem;
+        color: #4b5563;
+      }
+      .skill-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 16px;
+      }
+      .assignment-list {
+        list-style: none;
+        display: grid;
+        gap: 12px;
+        margin-top: 12px;
+      }
+      .assignment-item {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 8px;
+        padding: 12px 16px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: #fafafa;
+      }
+      .assignment-item span {
+        font-weight: 600;
+      }
+      .download-link {
+        background: var(--accent);
+        color: #ffffff;
+        padding: 6px 12px;
+        border-radius: 999px;
+        font-size: 0.85rem;
+      }
+      .skill-group h4 {
+        color: var(--accent);
+        margin-bottom: 8px;
+      }
+      .chips {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .chips li {
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: #f3f4f6;
+        font-size: 0.85rem;
+      }
+      .hobby-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 16px;
+      }
+      .hobby-card {
+        background: #fafafa;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 14px;
+      }
+      .contact-list {
+        display: grid;
+        gap: 8px;
+      }
+      footer {
+        margin-top: 28px;
+        text-align: center;
+        font-size: 0.85rem;
+        color: var(--muted);
+      }
+      @media (max-width: 800px) {
+        .card {
+          padding: 32px 24px;
+        }
+        .topbar {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 12px;
+        }
+        .nav {
+          flex-wrap: wrap;
+        }
+        .hero {
+          grid-template-columns: 1fr;
+        }
+        .experience-layout {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="card">
+        <header class="topbar">
+          <div class="logo">resum<span>.</span></div>
+          <nav class="nav">
+            <a href="#about">About</a>
+            <a href="#assignments">Assignments</a>
+            <a href="#experience">Experience</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+          </nav>
+        </header>
+
+        <section class="hero" id="about">
+          <img src="public/images/profile.jpg" alt="Miracle Chenda - Profile Photo" />
+          <div>
+            <small>Miracle Chenda - Profile Photo</small>
+            <h1>Miracle Chenda</h1>
+            <h2>Senior Frontend Developer</h2>
+            <p>
+              I build modern, responsive web applications with a passion for clean code and great
+              user experiences.
+            </p>
+          </div>
+        </section>
+
+        <section class="section">
+          <h3>About</h3>
+          <p>
+            Hi, I'm Miracle Chenda — a passionate frontend developer dedicated to creating
+            beautiful, functional, and user-friendly web experiences. I love transforming ideas
+            into reality through clean, efficient code.
+          </p>
+          <p>
+            Currently, I'm working as a Senior Frontend Developer at Medicare Ltd, where I lead the
+            development of modern healthcare web applications. I specialize in building responsive
+            interfaces and optimizing user experiences.
+          </p>
+          <p>
+            My journey in tech has taken me through various exciting opportunities — from working
+            at the AI Center at Near East University to building web solutions at Front Dreams. Each
+            experience has shaped my skills and deepened my love for web development.
+          </p>
+          <p>
+            Beyond coding, I'm passionate about serving God, playing and watching football,
+            traveling to new places, and continuously learning new technologies. I believe in
+            combining technical excellence with creativity to build impactful digital solutions.
+          </p>
+        </section>
+
+        <section class="section" id="documents">
+          <h3>Documents</h3>
+          <p><a href="#">View Full Resume</a></p>
+          <p class="muted">AII006 Assignments... Select a homework to view the available files.</p>
+          <p><strong>Homework 2</strong> — Homework assignment 2 files</p>
+          <p class="muted">Files (0) · No files available yet</p>
+        </section>
+
+        <section class="section" id="assignments">
+          <h3>Assignments</h3>
+          <p class="muted">Download all submitted coursework below.</p>
+          <ul class="assignment-list">
+            <li class="assignment-item">
+              <span>Assignment 1</span>
+              <a class="download-link" href="assignments/assignment-1.pdf" download>Download</a>
+            </li>
+            <li class="assignment-item">
+              <span>Assignment 2</span>
+              <a class="download-link" href="assignments/assignment-2.pdf" download>Download</a>
+            </li>
+            <li class="assignment-item">
+              <span>Assignment 3</span>
+              <a class="download-link" href="assignments/assignment-3.pdf" download>Download</a>
+            </li>
+            <li class="assignment-item">
+              <span>Assignment 4</span>
+              <a class="download-link" href="assignments/assignment-4.pdf" download>Download</a>
+            </li>
+            <li class="assignment-item">
+              <span>Assignment 5</span>
+              <a class="download-link" href="assignments/assignment-5.pdf" download>Download</a>
+            </li>
+            <li class="assignment-item">
+              <span>Assignment 6</span>
+              <a class="download-link" href="assignments/assignment-6.pdf" download>Download</a>
+            </li>
+            <li class="assignment-item">
+              <span>Assignment 7</span>
+              <a class="download-link" href="assignments/assignment-7.pdf" download>Download</a>
+            </li>
+          </ul>
+        </section>
+
+        <section class="section" id="skills">
+          <h3>Skills &amp; Technologies</h3>
+          <div class="skill-grid">
+            <div class="skill-group">
+              <h4>Frontend Development</h4>
+              <ul class="chips">
+                <li>JavaScript</li>
+                <li>React.js</li>
+                <li>HTML5</li>
+                <li>CSS3</li>
+                <li>Tailwind CSS</li>
+              </ul>
+            </div>
+            <div class="skill-group">
+              <h4>Backend Development</h4>
+              <ul class="chips">
+                <li>Python</li>
+                <li>PHP</li>
+                <li>Node.js</li>
+              </ul>
+            </div>
+            <div class="skill-group">
+              <h4>Database Management</h4>
+              <ul class="chips">
+                <li>MySQL</li>
+                <li>Database Design</li>
+                <li>SQL Queries</li>
+              </ul>
+            </div>
+            <div class="skill-group">
+              <h4>Design Tools</h4>
+              <ul class="chips">
+                <li>Photoshop</li>
+                <li>UI/UX Design</li>
+                <li>Responsive Design</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="experience">
+          <div class="experience-layout">
+            <div class="experience-title">
+              <span>7 Years of</span><br />
+              EXPERIENCE<span>.</span>
+            </div>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="year">Summer 2024 — Present</div>
+                <h4>Senior Frontend Developer · Medicare Ltd</h4>
+                <p>
+                  Leading frontend development for healthcare web applications. Building responsive,
+                  accessible user interfaces and implementing modern design systems. Collaborating
+                  with backend teams to deliver seamless patient-facing digital solutions.
+                </p>
+              </div>
+              <div class="timeline-item">
+                <div class="year">Summer 2023 — 2024</div>
+                <h4>AI Research Assistant · AI Center, Near East University</h4>
+                <p>
+                  Contributed to AI research projects and developed web interfaces for machine
+                  learning applications. Worked on data visualization tools and collaborated with
+                  researchers on cutting-edge AI implementations.
+                </p>
+              </div>
+              <div class="timeline-item">
+                <div class="year">2022 — 2023</div>
+                <h4>Web Developer · Front Dreams</h4>
+                <p>
+                  Developed and maintained client websites with a focus on responsive design and
+                  user experience. Created custom web solutions using modern technologies and
+                  collaborated with design teams to bring creative visions to life.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="hobbies">
+          <h3>Hobbies &amp; Interests</h3>
+          <div class="hobby-grid">
+            <div class="hobby-card">
+              <h4>Tech Stuff</h4>
+              <p>
+                Always exploring the latest in technology. From new frameworks to gadgets, I love
+                staying up-to-date with tech innovations and trends.
+              </p>
+            </div>
+            <div class="hobby-card">
+              <h4>Coding</h4>
+              <p>
+                Beyond work, coding is my creative outlet. I enjoy building side projects,
+                experimenting with new languages, and contributing to open source.
+              </p>
+            </div>
+            <div class="hobby-card">
+              <h4>Reading</h4>
+              <p>
+                Books are a window to endless knowledge. I enjoy reading about technology, personal
+                development, and faith-based literature.
+              </p>
+            </div>
+            <div class="hobby-card">
+              <h4>Traveling</h4>
+              <p>
+                Exploring new places and experiencing different cultures. Travel broadens
+                perspective and inspires creativity in unexpected ways.
+              </p>
+            </div>
+            <div class="hobby-card">
+              <h4>Serving God</h4>
+              <p>
+                My faith is central to who I am. I find joy in serving God and being part of a
+                community that supports and uplifts one another.
+              </p>
+            </div>
+            <div class="hobby-card">
+              <h4>Football</h4>
+              <p>
+                Whether watching matches or playing with friends, football is my favorite sport. It
+                brings excitement, teamwork, and a healthy competitive spirit.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="contact">
+          <h3>Contact</h3>
+          <p>
+            I'd love to hear from you! Whether it's a project collaboration, job opportunity, or
+            just a friendly chat — feel free to reach out.
+          </p>
+          <div class="contact-list">
+            <p><strong>Email:</strong> <a href="mailto:gracechenda1@gmail.com">gracechenda1@gmail.com</a></p>
+            <p><strong>GitHub:</strong> <a href="#">GitHub</a></p>
+            <p><strong>X (Twitter):</strong> <a href="#">X (Twitter)</a></p>
+            <p><strong>Telegram:</strong> <a href="#">Telegram</a></p>
+          </div>
+        </section>
+
+        <footer>© 2026 Miracle Chenda. Crafted with care using Next.js and Tailwind CSS.</footer>
+      </div>
+    </div>
+  </body>
+</html>
