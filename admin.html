@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin | Miracle Chenda Portfolio</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="admin-page">
+  <main class="admin-shell">
+    <section class="admin-card" data-auth-panel>
+      <p class="eyebrow">Portfolio Admin</p>
+      <h1>Sign in to manage projects.</h1>
+      <form class="admin-form" data-login-form>
+        <label>
+          Email
+          <input type="email" name="email" autocomplete="email" required>
+        </label>
+        <label>
+          Password
+          <input type="password" name="password" autocomplete="current-password" required>
+        </label>
+        <button class="button primary" type="submit">Sign in</button>
+      </form>
+      <p class="admin-message" data-auth-message></p>
+    </section>
+
+    <section class="admin-card is-hidden" data-dashboard>
+      <div class="admin-topbar">
+        <div>
+          <p class="eyebrow">Project Manager</p>
+          <h1>Upload and update portfolio projects.</h1>
+        </div>
+        <button class="button secondary" type="button" data-logout>Sign out</button>
+      </div>
+
+      <form class="admin-form project-form" data-project-form>
+        <input type="hidden" name="id">
+        <label>
+          Project title
+          <input type="text" name="title" placeholder="Healthcare Dashboard" required>
+        </label>
+        <label>
+          Category
+          <input type="text" name="category" placeholder="Frontend Project" required>
+        </label>
+        <label>
+          Description
+          <textarea name="description" rows="4" placeholder="Short summary of the project..." required></textarea>
+        </label>
+        <label>
+          Tech tags
+          <input type="text" name="tags" placeholder="React, Tailwind CSS, JavaScript">
+        </label>
+        <label>
+          Project file
+          <input type="file" name="file">
+        </label>
+        <div class="admin-actions">
+          <button class="button primary" type="submit">Save project</button>
+          <button class="button secondary" type="reset" data-clear-form>Clear</button>
+        </div>
+      </form>
+
+      <p class="admin-message" data-project-message></p>
+      <div class="admin-list" data-admin-projects></div>
+
+      <hr>
+
+      <p class="eyebrow">Assignments</p>
+      <form class="admin-form assignment-form" data-assignment-form>
+        <input type="hidden" name="id">
+        <label>
+          Slot number
+          <select name="slot_number" required>
+            <option value="">Select slot</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
+        </label>
+        <label>
+          Title
+          <input type="text" name="title" placeholder="Homework 1">
+        </label>
+        <label>
+          Subject
+          <input type="text" name="subject" placeholder="Math">
+        </label>
+        <label>
+          Description
+          <textarea name="description" rows="3" placeholder="Short notes"></textarea>
+        </label>
+        <label>
+          Link URL (optional)
+          <input type="url" name="link_url" placeholder="https://example.com">
+        </label>
+        <label>
+          Attachment (optional)
+          <input type="file" name="file">
+        </label>
+        <div class="admin-actions">
+          <button class="button primary" type="submit">Save assignment</button>
+          <button class="button secondary" type="reset" data-clear-assignment>Clear</button>
+        </div>
+      </form>
+      <p class="admin-message" data-assignment-message></p>
+      <div class="admin-list" data-admin-assignments></div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

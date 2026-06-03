@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assignments | Miracle Chenda Portfolio</title>
+  <meta name="description" content="Ten Supabase-powered assignment slots for Miracle's portfolio.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header" data-header>
+    <a class="brand" href="index.html" aria-label="Miracle Chenda home">MC</a>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="index.html">Work</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#experience">Experience</a>
+      <a href="assignments.html">Assignments</a>
+      <a href="kktc.html">KKTC by Miracle</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <a class="header-action" href="kktc.html">Visit KKTC</a>
+  </header>
+
+  <main>
+    <section class="hero section">
+      <div class="hero-copy">
+        <p class="eyebrow">Supabase-powered board</p>
+        <h1>Ten assignments, one clean portfolio view.</h1>
+        <p class="hero-text">
+          This page reads assignment records from Supabase and always renders 10 slots, so you can keep each task organized and visible inside the portfolio.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#assignments">See assignments</a>
+          <a class="button secondary" href="index.html">Back to portfolio</a>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-label="Assignments overview">
+        <div class="portrait-card">
+          <div class="portrait-fallback">10</div>
+        </div>
+        <div class="hero-note">
+          <span>Supabase</span>
+          <p>Connect your assignments table and add 10 rows with slot numbers 1 to 10.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="assignments">
+      <div class="section-heading">
+        <p class="eyebrow">Assignments</p>
+        <h2>Loaded from the assignments table.</h2>
+        <p data-assignments-status>Loading assignment slots from Supabase...</p>
+      </div>
+
+      <div class="assignments-grid" data-assignments-grid></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Miracle Chenda</p>
+    <a href="index.html">Back to portfolio</a>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="assignments.js"></script>
+</body>
+</html>
