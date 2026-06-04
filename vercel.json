@@ -1,3 +1,52 @@
 {
-  "trailingSlash": false
+  "version": 2,
+  "trailingSlash": false,
+  "builds": [
+    {
+      "src": "index.html",
+      "use": "@vercel/static"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/admin.html",
+      "destination": "/admin",
+      "permanent": true
+    },
+    {
+      "source": "/assignments.html",
+      "destination": "/assignments",
+      "permanent": true
+    },
+    {
+      "source": "/kktc.html",
+      "destination": "/kktc",
+      "permanent": true
+    },
+    {
+      "source": "/culture.html",
+      "destination": "/kktc/culture",
+      "permanent": true
+    },
+    {
+      "source": "/contact.html",
+      "destination": "/kktc/contact",
+      "permanent": true
+    },
+    {
+      "source": "/gallery.html",
+      "destination": "/kktc/gallery",
+      "permanent": true
+    },
+    {
+      "source": "/miracle.html",
+      "destination": "/kktc/miracle",
+      "permanent": true
+    },
+    {
+      "source": "/shops.html",
+      "destination": "/kktc/shops",
+      "permanent": true
+    }
+  ]
 }
