@@ -5,6 +5,7 @@ const sections = navLinks
   .filter(Boolean);
 
 function updateHeader() {
+  if (!header) return;
   header.classList.toggle("is-scrolled", window.scrollY > 24);
 }
 
@@ -63,8 +64,12 @@ async function loadPublishedProjects() {
     window.supabase;
 
   if (!projectGrid) return;
+  if (window.location.protocol === "file:") {
+    renderProjectEmptyState("Open the portfolio from a web server or deploy it to load projects from Supabase.");
+    return;
+  }
   if (!isConfigured) {
-    renderProjectEmptyState("Connect Supabase in supabase-config.js, then publish projects from the admin dashboard.");
+    renderProjectEmptyState("Connect Supabase in js/supabase-config.js, then publish projects from the admin dashboard.");
     return;
   }
 

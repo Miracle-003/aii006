@@ -38,7 +38,7 @@ function requireSupabase() {
   if (client) return true;
   setMessage(
     authMessage,
-    "Add your Supabase URL and anon key in supabase-config.js before using the admin dashboard.",
+    "Add your Supabase URL and anon key in js/supabase-config.js before using the admin dashboard.",
     "error"
   );
   return false;
